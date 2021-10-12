@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,11 +24,11 @@
         <div class="container">
             <a class="navbar-brand mynav" href="{% url 'home' %}">Star Social</a>
             <ul class="nav navbar-nav navbar-right">
-                {% if user.isauthenticated %}
+                {% if user.is_authenticated %}
                     <li><a href="#">Post</a></li>
                     <li><a href="#">Groups</a></li>
                     <li><a href="#">Create Group</a></li>
-                    <li><a href="{% url 'accounts:logout' %}"></a></li>
+                    <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
                 {% else %}
                     <li><a href="#">Groups</a></li>
                     <li><a href="{% url 'accounts:login' %}">LogIn</a></li>
@@ -40,7 +41,6 @@
         {% block content %}
 
         {% endblock %}
-
     </div>
     
     
